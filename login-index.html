@@ -36,12 +36,9 @@
 
     <script>
         $(document).ready(function () {
-            const yy = document.getElementById('yy');
-            const mm = document.getElementById('mm');
-            const dd = document.getElementById('dd');
-            const hh = document.getElementById('hh');
-            const mi = document.getElementById('mi');
-            const ss = document.getElementById('ss');
+            const yearElement = document.getElementById('myyear');
+            const dayElement = document.getElementById('mytimer');
+            const timeElement = document.getElementById('mytimer2');
 
             $("#incorrect").css('visibility', 'hidden');
             $("#correct").css('visibility', 'hidden');
@@ -63,12 +60,19 @@
                 const diffMinutes = Math.floor(diffSeconds / 60);
                 diffSeconds = diffSeconds - (diffMinutes * 60);
 
-                yy.textContent = diffYears;
-                mm.textContent = diffMonths;
-                dd.textContent = diffDays;
-                hh.textContent = diffHours;
-                mi.textContent = diffMinutes;
-                ss.textContent = diffSeconds;
+                const yearText = `${diffYears} years `;
+                const daystext = `${diffMonths} months 
+                    ${diffDays} days`;
+                const timeText = `${diffHours} hrs 
+                    ${diffMinutes} mins and 
+                    ${diffSeconds} seconds old`;
+
+                yearElement.textContent = yearText;
+                dayElement.textContent = daystext;
+                timeElement.textContent = timeText;
+
+                // console.log({ years: diffYears, months: diffMonths, days: diffDays });
+                // console.log({ hours: diffHours, minutes: diffMinutes, seconds: diffSeconds });
             }
 
             setInterval(calculateTime, 500);
@@ -78,7 +82,7 @@
                 $("#correct").show();
                 const passwordElement = document.getElementById('attemptPassword');
                 console.log(passwordElement.value);
-                if (passwordElement.value == 'abc') {
+                if (passwordElement.value == 'Hurry22play') {
                     $("#incorrect").hide();
                     $("#correct").css('visibility', 'visible');
                     setTimeout(() => {
@@ -92,11 +96,6 @@
 
         });
     </script>
-    <style>
-        .bg-gradient-ombre {
-            background: linear-gradient(87deg, #33ccff 0, #ff99cc 100%) !important;
-        }
-    </style>
 </head>
 
 <body class="bg-default">
@@ -104,7 +103,7 @@
     <!-- Navbar -->
     <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="dashboard.html">
                 <img src="./assets/img/brand/white-p.png">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
@@ -150,9 +149,9 @@
 
                     <li class="nav-item">
                         <a class="nav-link nav-link-icon" href="https://www.instagram.com/piyushajain/" target="_blank"
-                            data-toggle="tooltip" data-original-title="Piyusha | Birthday">
+                            data-toggle="tooltip" data-original-title="Follow us on Instagram">
                             <i class="fas fa-birthday-cake"></i>
-                            <span class="nav-link-inner--text d-lg-none">Birthday</span>
+                            <span class="nav-link-inner--text d-lg-none">Instagram</span>
                         </a>
                     </li>
 
@@ -164,15 +163,15 @@
     <div class="main-content">
         <canvas id="canvas"></canvas>
         <!-- Header -->
-        <div class="header bg-gradient-ombre py-7 py-lg-6 pt-lg-3">
+        <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
             <div class="container">
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-                            <!-- <h1 class="text-white"><i class="fas fa-birthday-cake"></i> Happy Birthday <i
-                                    class="fas fa-birthday-cake"></i></h1> -->
-                            <img src="https://www.nicepng.com/png/full/253-2534282_full-happy-birthday-png-white.png"
-                                height="160px">
+                            <h1 class="text-white"><i class="fas fa-birthday-cake"></i> Happy Birthday <i
+                                    class="fas fa-birthday-cake"></i></h1>
+                            <p class="text-lead text-white">Use the verse down below to figure out the password inorder
+                                to start your journey...</p>
                         </div>
                     </div>
                 </div>
@@ -185,80 +184,51 @@
             </div>
         </div>
         <!-- Page content -->
-        <div class="container mt--8 pb-2">
+        <div class="container mt--8 pb-5">
             <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-5 col-md-7">
                     <div class="card bg-secondary mb-0">
-                        <div class="card-header bg-transparent" style="border-bottom: 0px; padding-bottom: 0px;">
+                        <div class="card-header bg-transparent pb-1" style="border-bottom: 0px;">
                             <div class="text-muted text-center mt-2 mb-3">
-                                <img height="300px" src="./assets/img/brand/piya-half.png" id="pi"
-                                    style="display: block; margin-left: auto; margin-right: auto; position: relative; top: 30px; transform: scale(1.3);">
 
-                                <!-- <h3>Thats how old you are!</h3> -->
+                                <small id="myyear" style="color: #32325d; font-size: .8125rem; font-weight: 600;">19
+                                    years </small>
+                                <small id="mytimer">11 months 29 days</small> <br>
+                                <small id="mytimer2">11 hrs 29 mins and 12 sec</small> <br>
 
+
+                                <small> No time to think, no time to</small> <small
+                                    style="color: #32325d; font-size: .8125rem; font-weight: 600;">play</small>.<br>
+                                <small
+                                    style="color: #32325d; font-size: .8125rem; font-weight: 600;">Hurry</small><small>,
+                                    chaos, lots of stress, <br>
+                                    Tension leads to sleeplessness. <br></small>
                             </div>
                         </div>
-                        <div class="card-body px-lg-4" style="padding: 0px;">
-                            <div class="card table-responsive text-center align-items-center">
-
-                                <table class="table align-items-center table-dark" style="position: relative; top: 0;">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th class="text-primary" id="yy"
-                                                style="font-size: 2rem; padding-right: 0px; padding-left: 0px;">
-                                                &nbsp;</th>
-                                            <th class="text-primary" id="mm"
-                                                style="font-size: 2rem; padding-right: 0px; padding-left: 0px;">
-                                                &nbsp;</th>
-                                            <th class="text-primary" id="dd"
-                                                style="font-size: 2rem; padding-right: 0px; padding-left: 0px;">
-                                                &nbsp;</th>
-                                            <th class="text-primary" id="hh"
-                                                style="font-size: 2rem; padding-right: 0px; padding-left: 0px;">
-                                                &nbsp;</th>
-                                            <th class="text-primary" id="mi"
-                                                style="font-size: 2rem; padding-right: 0px; padding-left: 0px;">
-                                                &nbsp;</th>
-                                            <th class="text-primary" id="ss"
-                                                style="font-size: 2rem; padding-right: 0px; padding-left: 0px;">
-                                                &nbsp;</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="list">
-                                        <tr>
-                                            <td><small>years</small></td>
-                                            <td><small>months</small></td>
-                                            <td><small>days</small></td>
-                                            <td><small>hours</small></td>
-                                            <td><small>minutes</small></td>
-                                            <td><small>seconds</small></td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="card-body px-lg-5 py-lg-1">
+                            <!-- <div class="text-center text-muted mb-4">
+                <small>Sign in with credentials</small>
+              </div> -->
                             <form role="form">
-                                <div class="input-group mb-3">
+
+                                <div class="form-group" style="margin-bottom: 5px;">
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                         </div>
-                                        <input type="password" class="form-control" placeholder="Password"
-                                            id="attemptPassword" aria-label="Password" aria-describedby="button-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button"
-                                                id='checkPassword'>Proceed&nbsp;→</button>
-                                        </div>
+                                        <input class="form-control" placeholder="Password" type="password"
+                                            id="attemptPassword">
                                     </div>
-
                                 </div>
-
                                 <div id="wrong">
                                     <span class="badge badge-danger" id="incorrect">Beep! Wrong Password :P</span>
                                     <span class="badge badge-success" id="correct">Wohoo! Correct Password :P</span>
                                 </div>
-                                <br>
+                                <div class="text-center">
+
+                                    <button type="button" class="btn btn-primary my-4" id='checkPassword'>Proceeed
+                                        →</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -268,36 +238,31 @@
         </div>
     </div>
     <!-- Footer -->
-    <footer class="py-2" id="footer-main" style="padding-bottom: 0px;">
+    <footer class=" py-5" id="footer-main">
         <div class="container">
             <div class="row align-items-center justify-content-xl-between">
                 <div class="col-xl-6">
                     <div class="copyright text-center text-xl-left text-muted">
-                        &copy; 2020
-                        <a href="" class="font-weight-bold ml-1" target="_blank">
-                            Creative</a>
-                        <a href="https://www.facebook.com/nidhi.maheshwari.5203" class="font-weight-bold ml-1"
-                            target="_blank">
-                            N</a>
-                        <a href="https://www.findbhavya.com" class="font-weight-bold ml-1" target="_blank">
-                            B</a>
+                        &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1"
+                            target="_blank">Creative
+                            Tim</a>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <ul class="nav nav-footer justify-content-center justify-content-xl-end">
                         <li class="nav-item">
-                            <!-- <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a> -->
+                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
                         </li>
                         <li class="nav-item">
-                            <!-- <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About -->
-                            <!-- Us</a> -->
+                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
+                                Us</a>
                         </li>
                         <li class="nav-item">
-                            <!-- <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a> -->
+                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Made with &nbsp; <span style="color: red;">❤</span>
-                                &nbsp; by Gulshan Friends Inc.</a>
+                            <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md"
+                                class="nav-link" target="_blank">MIT License</a>
                         </li>
                     </ul>
                 </div>
